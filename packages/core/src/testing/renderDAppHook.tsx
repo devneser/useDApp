@@ -31,7 +31,7 @@ export const renderDAppHook = async <Tprops, TResult>(
   hook: (props: Tprops) => TResult,
   options?: RenderDAppHookOptions<Tprops>
 ) => {
-  const UserWrapper = options?.renderHook?.wrapper ?? IdentityWrapper
+  const UserWrapper = (options?.renderHook?.wrapper ?? IdentityWrapper) as any
 
   const { result, waitForNextUpdate, rerender, unmount } = renderHook<Tprops, TResult>(hook, {
     wrapper: (wrapperProps) => (

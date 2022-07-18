@@ -71,7 +71,7 @@ export const renderWeb3Hook = async <Tprops, TResult>(
     readOnlyProviders[chainId] = defaultReadOnlyProvider
   }
 
-  const UserWrapper = options?.renderHook?.wrapper ?? IdentityWrapper
+  const UserWrapper = (options?.renderHook?.wrapper ?? IdentityWrapper) as any
 
   const { result, waitForNextUpdate, rerender, unmount } = renderHook<Tprops, TResult>(hook, {
     wrapper: (wrapperProps) => (
